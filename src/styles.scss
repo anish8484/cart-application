@@ -1,0 +1,16 @@
+@import "../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+/*@import "../node_modules/bootstrap/dist/css/bootstrap.css";*/
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+.mt-60{
+  margin-top:60px;
+}
+
+body{
+	position:relative;
+}
+
+.modal-content{
+	margin-top:25%;
+}

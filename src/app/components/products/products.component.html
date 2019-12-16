@@ -1,0 +1,84 @@
+<div class="container-fluid mt-60">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="wrapper deskview">
+            <label>Filters</label>
+            <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider>
+            <p class="pText"><strong>Price</strong></p>
+            <div class="updateBtn" (click)="updatedMinMaxValue()">
+                <span>Apply</span>
+            </div>              
+          </div>
+          <div class="wrapper mView">
+            <div class="sortM">
+                <button type="button" (click)="showM()"><i class="fas fa-sort"></i>Sort</button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><strong class="sortLabel">Sort By </strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <ul>
+                            <li (click)="priceHighToLow()" data-dismiss="modal" ><input type="radio" /><strong>Price--High_Low</strong></li>
+                            <li (click)="priceLowToHigh()" data-dismiss="modal"><input type="radio" /><strong>Price--Low_High</strong></li>
+                            <li (click)="discountPrice()" data-dismiss="modal"><input type="radio" /><strong>Discount</strong></li>
+                          </ul> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="filterM">
+                <button (click)="filterModal()"><i class="fas fa-filter"></i>Filter</button>
+                <div class="modal fade" id="filterM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><strong class="sortLabel">Filters </strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                         <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider>
+                         <p class="pText"><strong>Price</strong></p>
+                        <div class="updateBtn" data-dismiss="modal" (click)="updatedMinMaxValue()">
+                          <span>Apply</span>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 bl-g">
+          <div class="wrapper deskview">
+            <label><strong class="sortLabel">Sort By </strong></label>
+            <ul>
+              <li (click)="priceHighToLow()" ><strong>Price--High_Low</strong></li>
+              <li (click)="priceLowToHigh()"><strong>Price--Low_High</strong></li>  
+              <li (click)="discountPrice()"><strong>Discount</strong></li>
+            </ul> 
+          </div>
+          <div class="g-tiles">
+              <div *ngFor="let item of storeProduct | searchItem: searchProduct" class="grid-col">
+                  <div class="tiles">
+                    <img src="{{item.img_url}}" class="imgClass" width="100%" height="auto"/>
+                    <p class="itemCategory" ><strong> {{item.category}} </strong></p>
+                    <p class="priceText"><span class="itemPrice" ><strong>{{item.price | currency: 'INR'}} </strong></span><span class="itemDiscount" [ngClass]="item.discount == 0 ? '' : 'strike'" >{{(item.price*100)/(100-item.discount) | number}}</span><span  class="discountPercent" > <strong>{{item.discount}}% off</strong></span></p>
+                    <div class="cartBtn">
+                        <a class="addToCart productCart" (click)="addProductOnCart(item)">Add To Cart</a>
+                    </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

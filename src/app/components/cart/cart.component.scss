@@ -1,0 +1,110 @@
+@import "../../../assets/scss/_variable";
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.container{
+	@include media-breakpoint-up(md) {
+  		max-width:1360px;      
+  	}
+
+  	.cartContainer{
+  		padding:40px 20px;
+
+      @include media-breakpoint-down(md){
+        padding:40px 5px;
+      }
+  		.cartCtrl{
+  			display: flex;
+			  margin-bottom: 10px;
+    		border: solid 1px #a7a7a7;
+    		padding: 20px;
+        @include media-breakpoint-down(lg){
+           display: inline-block;
+           width:100%;
+        }
+  			.priceBox{
+  				display: flex;
+    			align-items: center;
+    			justify-content: center;
+    			position: relative;
+           @include media-breakpoint-down(lg){
+              display: inline-block;
+            }
+    			div{
+    				margin-right:12px;
+    			}
+    			p{
+    				position: absolute;
+    				left: 15px;
+    				top: 0;
+    				text-transform: capitalize;
+    			}
+    			.cartDiscountPercent{
+				    color: #388e3c;    					
+    			}
+  			}
+
+  			.inputBox{
+  				display: flex;
+			    align-items: center;
+    			justify-content: center;
+    			position: relative;
+           @include media-breakpoint-down(lg){
+              display: inline-flex;
+              margin-top:18px;
+            }
+    			.minusBtn, .plusBtn{
+    				width: 28px;
+    				height: 28px;		
+    				background: linear-gradient(#fff,#f9f9f9);
+    				display: inline-block;
+    				border: 1px solid #c2c2c2;
+    				cursor: pointer;
+    				font-size: 16px;
+    				border-radius: 50%;
+    				padding-top: 1px;
+    				line-height: 1;
+    				margin: 0 10px;
+    			}
+    			input{
+    				text-align:center;
+    			}
+  			}
+  		}
+  	}
+}
+
+.strike {
+      text-decoration: line-through;  
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.priceBox{
+	padding:40px 20px;
+
+	.cartBox, .cartTotal{
+		border: solid 1px #a7a7a7;;
+		padding: 20px;
+	}
+	.cartBox, .cartTotal{
+		.pTag{
+			color: #878787;
+		}
+		div{
+			display: -webkit-flex;
+    		display: -ms-flexbox;
+    		display: flex;
+    		-webkit-justify-content: space-between; 
+    		-ms-flex-pack: justify;
+    		justify-content: space-between;
+    		margin: 20px 0;
+    		-webkit-align-items: center;
+    		-ms-flex-align: center;
+    		align-items: center;
+		}
+	}
+} 

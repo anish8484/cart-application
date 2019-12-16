@@ -1,0 +1,18 @@
+<section>
+    <div class="container-fluid header-promo">
+        <div class="header">
+            <a routerLink="/home">
+                <i class="fa fa-star"></i>
+            </a>
+    		<div class="elFun">
+                <input type="text" class="searchBox" placeholder="Search" (keyup)="onKey($event)" name=""/>
+    			<i class="fa fa-search" aria-hidden="true"></i>
+    			<a routerLink="/cart" [ngClass]="showHead == false ? '' : 'test'">
+    				<i class="fa fa-shopping-cart"></i>
+    	    		<span class="cart-count" [ngClass]="count == 0 ? '' : 'showCart'">{{count}} </span>
+    			</a>
+    		</div>
+    		
+        </div>
+    </div>
+</section>

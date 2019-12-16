@@ -1,0 +1,44 @@
+<section>
+	<div class="container mt-60">
+	<div class="row">
+		<div class="col-md-8">
+		     <div class="cartContainer" >
+		        <div class="cartCtrl" *ngFor="let item of selectedProduct; index as i">
+		        <img src="{{item.img_url}}" class="cartImage" width="150px" height="auto"/>
+		        <div class="priceBox">
+		        	 <p><strong> {{item.category}} </strong></p>
+		        	 <div>{{item.price | currency: 'INR'}} <span [ngClass]="item.discount == 0 ? '' : 'strike'" style="color: grey;">{{(item.price*100)/(100-item.discount) | number}}</span></div>
+		        	 <div class="cartDiscountPercent" >{{item.discount}}%off</div>
+		        </div>
+		         <div class="inputBox">
+		             <button value="-" class="minusBtn" (click)="minusOne(item.counter, i)">-</button>
+		             <input type="number" id="inputValue" [value]="num" (blur)="valNum(item.counter, i)" [(ngModel)]='item.counter' name="quantity" class="quantity-field" />
+		             <button value="+" class="plusBtn"  (click)="addOne(item.counter, i)">+</button>
+		             <div class="btn btn-danger" (click)="removeProduct(item)" >Remove</div>
+		         </div>
+		        </div>
+		     </div>
+		</div>
+		 <div class="col-md-4 priceBox">
+		    <div class="cartBox">
+		       <h5 class="pTag">PRICE DETAILS</h5>
+		       <div>
+		       	<span>Price ({{totalCounter}} item) :</span>
+		       	<span>{{actualAmount | currency: 'INR'}}</span>
+		       </div>
+		       <div>
+		       	<span>Discount : </span>
+		       	<span>{{discountAmount | currency: 'INR'}}</span>
+		       </div>
+		    </div>
+		    <div class="cartTotal">
+		    	<div>
+		    		<span>Total Payable  </span>
+		    		<span>{{totalAmount | currency: 'INR'}}</span>
+		    	</div>
+		    </div>
+		 </div>
+	</div>
+</div>
+</section>
+

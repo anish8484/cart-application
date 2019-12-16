@@ -1,0 +1,76 @@
+@import "../../../assets/scss/_variable.scss";
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+.header-promo{
+	position: fixed;
+  	top: 0px;
+  	z-index: 99999;
+	padding-left:0;
+	padding-right:0;
+	.header{
+		background-color:$blue;
+		min-height:$header-height;
+		padding: 0 30px;
+		display: -webkit-flex;
+    	display: -ms-flexbox;
+    	display: flex;
+
+		.fa-star{
+			font-size: 3rem;
+			color: $gold;
+			padding: 12px 0;	
+		}
+		.elFun{
+			display:flex;
+			justify-content:flex-end;
+			flex:auto;
+			.fa-search{
+				font-size: 2rem;
+	    		padding: 22px 0;
+	    		color: $white;
+			}
+			.fa-shopping-cart{
+				font-size:3rem;
+				padding:12px 0;
+				color:$white;
+				margin-left: 15px;
+			}
+			a{
+				position:relative;
+				.cart-count{
+					position: absolute;
+					left: 11px;
+					top: 7px;
+					text-align: center;
+					border-radius:50%;
+					width: 28px;
+					height: 28px;
+					background-color: #ff6161;
+					border: 1px solid #fff;
+					font-weight: 400;
+					color: #ffffff;
+					font-size: 1rem;
+					display:none;
+				}
+			}
+
+			.searchBox{
+				margin: 20px 4px;
+    			min-width: 300px;
+
+    			@include media-breakpoint-down(sm){
+    				min-width:auto;
+    			}
+			}
+
+			.showCart{
+				display:block !important;
+			}
+
+			.test{
+				display:none;
+			}
+			
+		}
+		
+	}	
+}
