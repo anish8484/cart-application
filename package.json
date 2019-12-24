@@ -1,5 +1,5 @@
 {
-  "name": "shopping-cart",
+  "name": "cart-application",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
