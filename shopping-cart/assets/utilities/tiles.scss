@@ -1,0 +1,31 @@
+@import "../scss/_variable";
+@mixin tilesGrid($guiter, $column, $flex: true) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$guiter;
+  margin-right: -$guiter;
+  > .grid-col {
+    @if $flex == true {
+      flex: (100% / 2);
+      max-width: (100% / 2);
+      @include media-breakpoint-up(sm) {
+        flex: (100% / 3);
+        max-width: (100% / 3);
+      }
+      @include media-breakpoint-up(md) {
+        flex: (100% / 4);
+        max-width: (100% / 4);
+      }
+      @include media-breakpoint-up(lg) {
+        flex: (100% / $column);
+        max-width: (100% / $column);
+      }
+    } @else {
+      flex: (100% / $column);
+      max-width: (100% / $column);
+    }
+    padding-left: $guiter;
+    padding-right: $guiter;
+    margin-bottom: $guiter * 2;
+  }
+}
